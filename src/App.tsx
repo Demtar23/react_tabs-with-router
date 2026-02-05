@@ -4,7 +4,7 @@ import './App.scss';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation/Navigation';
 import { HomePage } from './components/HomePage/HomePage';
-import { TabContent, Tabs } from './components/Tabs/Tabs';
+import { TabsPage } from './components/TabsPage/TabsPage';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
 export const App = () => (
@@ -17,9 +17,9 @@ export const App = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="/tabs" element={<Tabs />}>
-            <Route index element={<p>Please select a tab</p>} />
-            <Route path=":tabId" element={<TabContent />} />
+          <Route path="/tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />
